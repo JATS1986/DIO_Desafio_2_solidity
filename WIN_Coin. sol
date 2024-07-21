@@ -16,9 +16,9 @@ interface ERC20Interface{
 }
  
 //Actual token contract 
-contract WIN_token is ERC20Interface{
-    string public symbol = "WINt" ;
-    string public  name = "WIN token";
+contract WIN_Coin is ERC20Interface{
+    string public symbol = "WINC" ;
+    string public  name = "WIN Coin";
     uint8 public decimals = 2;
     uint256 public _totalSupply;
  
@@ -26,9 +26,8 @@ contract WIN_token is ERC20Interface{
     mapping(address => mapping(address => uint)) allowed;
  
     constructor() {
-        _totalSupply = 210000000;
-        balances[YOUR_METAMASK_WALLET_ADDRESS] = _totalSupply;
-        emit Transfer(address(0), YOUR_METAMASK_WALLET_ADDRESS, _totalSupply);
+        _totalSupply = 21000;
+        balances[msg.sender] = _totalSupply;
     }
  
     function totalSupply() public override view returns (uint256) {
@@ -68,4 +67,4 @@ contract WIN_token is ERC20Interface{
         emit Transfer(from, to, tokens);
         return true;
     }
-} 
+}
